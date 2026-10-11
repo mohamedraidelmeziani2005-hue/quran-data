@@ -19,7 +19,7 @@
     { "id": "minsh", "name": "محمد صديق المنشاوي", "base": "https://server10.mp3quran.net/minsh/" },
     { "id": "husr", "name": "محمود خليل الحصري", "base": "https://server13.mp3quran.net/husr/" },
     { "id": "maher", "name": "ماهر المعيقلي", "base": "https://server12.mp3quran.net/maher/" },
-    { "id": "hazza", "name": "هزاع البلوشي", "base": "https://cdn.mp3quran.net/audio/hazza-balushi/" },
+    { "id": "hazza", "name": "هزاع البلوشي", "base": "https://cdn.mp3quran.net/audio/raad-kurdi/" },
     { "id": "yasser", "name": "ياسر الدوسري", "base": "https://server11.mp3quran.net/yasser/" }
   ]
 }
