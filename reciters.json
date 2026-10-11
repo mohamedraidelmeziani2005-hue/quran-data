@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "update_link": "",
+  "announcement": "",
+  "reciters": [
+    { "id": "bader", "name": "بدر التركي", "base": "https://server10.mp3quran.net/bader/" },
+    { "id": "sudais", "name": "عبد الرحمن السديس", "base": "https://server11.mp3quran.net/sds/" },
+    { "id": "ajamy", "name": "أحمد العجمي", "base": "https://server10.mp3quran.net/ajm/" },
+    { "id": "mustafa", "name": "مصطفى إسماعيل", "base": "https://server8.mp3quran.net/mustafa/" },
+    { "id": "shuraim", "name": "سعود الشريم", "base": "https://server7.mp3quran.net/shur/" },
+    { "id": "qatami", "name": "ناصر القطامي", "base": "https://server6.mp3quran.net/qtm/" },
+    { "id": "jleel", "name": "خالد الجليل", "base": "https://server10.mp3quran.net/jleel/" },
+    { "id": "abkar", "name": "إدريس أبكر", "base": "https://server6.mp3quran.net/abkr/" },
+    { "id": "hthfi", "name": "علي الحذيفي", "base": "https://server9.mp3quran.net/hthfi/" },
+    { "id": "lhdan", "name": "محمد اللحيدان", "base": "https://server8.mp3quran.net/lhdan/" },
+    { "id": "rifai", "name": "هاني الرفاعي", "base": "https://server8.mp3quran.net/rifai/" },
+    { "id": "afasy", "name": "مشاري العفاسي", "base": "https://server8.mp3quran.net/afs/" },
+    { "id": "basit", "name": "عبد الباسط عبد الصمد", "base": "https://server7.mp3quran.net/basit/" },
+    { "id": "minsh", "name": "محمد صديق المنشاوي", "base": "https://server10.mp3quran.net/minsh/" },
+    { "id": "husr", "name": "محمود خليل الحصري", "base": "https://server13.mp3quran.net/husr/" },
+    { "id": "maher", "name": "ماهر المعيقلي", "base": "https://server12.mp3quran.net/maher/" },
+    { "id": "yasser", "name": "ياسر الدوسري", "base": "https://server11.mp3quran.net/yasser/" }
+  ]
+}
