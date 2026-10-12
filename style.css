@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap');
 
-/* المتغيرات الأساسية والألوان (الوضع الفاتح) */
+/* =========================================
+   1. المتغيرات العامة والسمات (Theme Variables)
+========================================= */
 :root {
     --green: #087f63;
     --green-dark: #065e49;
@@ -54,7 +56,9 @@ button {
     min-height: 100vh;
 }
 
-/* الشريط الجانبي */
+/* =========================================
+   2. الشريط الجانبي (Sidebar)
+========================================= */
 .sidebar {
     width: 240px;
     position: fixed;
@@ -123,7 +127,9 @@ button {
     display: none;
 }
 
-/* المنطقة الرئيسية والشريط العلوي */
+/* =========================================
+   3. المنطقة الرئيسية والشريط العلوي (Topbar)
+========================================= */
 .main {
     margin-right: 240px;
     width: calc(100% - 240px);
@@ -174,7 +180,9 @@ button {
     padding: 25px;
 }
 
-/* شبكة السور والبحث */
+/* =========================================
+   4. شبكة السور والبحث (Home Grid)
+========================================= */
 .search {
     margin-bottom: 20px;
 }
@@ -258,13 +266,16 @@ button {
     display: inline-block;
 }
 
-/* صفحة المصحف والقراءة */
+/* حالات التنقل بين الشاشات */
 .reader { display: none; }
 .reader.active { display: block; }
 .home.hidden { display: none; }
 .downloadsView { display: none; }
 .downloadsView.active { display: block; }
 
+/* =========================================
+   5. صفحة المصحف والقراءة (Reader View)
+========================================= */
 .readerHead {
     background: var(--card);
     border: 1px solid var(--border);
@@ -406,7 +417,9 @@ html.dark .reciterSelect option {
     margin: 0 4px;
 }
 
-/* المشغل الصوتي المخصص */
+/* =========================================
+   6. المشغل الصوتي المخصص (Audio Player)
+========================================= */
 .customPlayer {
     position: fixed;
     bottom: 0;
@@ -517,7 +530,9 @@ html.dark .reciterSelect option {
     justify-content: flex-end;
 }
 
-/* إدارة التنزيلات والقوائم المنسدلة */
+/* =========================================
+   7. إدارة التنزيلات (Downloads Section)
+========================================= */
 .downloadsContainer {
     display: flex;
     flex-direction: column;
@@ -671,7 +686,132 @@ html.dark .reciterSelect option {
     transition: width 0.2s linear;
 }
 
-/* رسائل التنبيه العائمة */
+/* =========================================
+   8. قسم الأذكار والتسابيح (Adhkar Section)
+========================================= */
+.adhkarView {
+    display: none;
+}
+
+.adhkarView.active {
+    display: block;
+}
+
+.adhkarNav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 22px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+}
+
+.adhkarTabBtn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.adhkarTabBtn:hover, .adhkarTabBtn.active {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+.dhikrCard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.dhikrText {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    line-height: 2.1;
+    color: var(--text);
+    text-align: justify;
+}
+
+.dhikrFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+}
+
+.dhikrFadl {
+    font-size: 13px;
+    color: var(--muted);
+    flex: 1;
+    margin-left: 15px;
+}
+
+.dhikrCounterWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dhikrCountBtn {
+    background: var(--green-light);
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    min-width: 85px;
+    height: 44px;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: 0.15s ease;
+    user-select: none;
+}
+
+.dhikrCountBtn:active {
+    transform: scale(0.95);
+}
+
+.dhikrCountBtn.done {
+    background: var(--border);
+    border-color: var(--border);
+    color: var(--muted);
+}
+
+.resetDhikrBtn {
+    width: 36px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.resetDhikrBtn:hover {
+    color: var(--green);
+    border-color: var(--green);
+}
+
+/* =========================================
+   9. رسائل التنبيه العائمة (Toast)
+========================================= */
 .toast {
     position: fixed;
     bottom: 90px;
