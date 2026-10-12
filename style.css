@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap');
 
 /* =========================================
-   1. المتغيرات العامة والسمات (Theme Variables)
+   1. المتغيرات والسمات (Theme Variables)
 ========================================= */
 :root {
     --green: #087f63;
@@ -17,7 +17,6 @@
     --player-height: 76px;
 }
 
-/* ألوان الوضع المظلم (Dark Mode) */
 html.dark body, body.dark {
     --bg: #0e1512;
     --card: #18221e;
@@ -128,7 +127,7 @@ button {
 }
 
 /* =========================================
-   3. المنطقة الرئيسية والشريط العلوي (Topbar)
+   3. الشريط العلوي والمحتوى (Topbar)
 ========================================= */
 .main {
     margin-right: 240px;
@@ -155,18 +154,19 @@ button {
 }
 
 .miniBtn {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border: 1px solid var(--border);
     border-radius: 8px;
     background: var(--card);
     color: var(--text);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.2s;
+    position: relative;
 }
 
 .miniBtn:hover {
@@ -181,7 +181,114 @@ button {
 }
 
 /* =========================================
-   4. شبكة السور والبحث (Home Grid)
+   4. الإشعارات وقائمة التحديث (Notifications)
+========================================= */
+.notifContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.notifBadgeDot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    border: 2px solid var(--card);
+    display: none;
+    animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.notifDropdown {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 320px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 3000;
+    overflow: hidden;
+    animation: fadeIn 0.2s ease;
+}
+
+.notifDropdown.open {
+    display: block;
+}
+
+.notifHeader {
+    padding: 12px 16px;
+    background: var(--green-light);
+    color: var(--green);
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.notifBody {
+    padding: 16px;
+}
+
+.updateCard {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: right;
+}
+
+.updateCardTitle {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.updateCardDesc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.downloadUpdateBtn {
+    width: 100%;
+    background: var(--green);
+    color: white;
+    border-radius: 8px;
+    padding: 9px 0;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.downloadUpdateBtn:hover {
+    background: var(--green-dark);
+}
+
+/* =========================================
+   5. شاشة السور والبحث (Home Grid)
 ========================================= */
 .search {
     margin-bottom: 20px;
@@ -266,7 +373,6 @@ button {
     display: inline-block;
 }
 
-/* حالات التنقل بين الشاشات */
 .reader { display: none; }
 .reader.active { display: block; }
 .home.hidden { display: none; }
@@ -274,7 +380,7 @@ button {
 .downloadsView.active { display: block; }
 
 /* =========================================
-   5. صفحة المصحف والقراءة (Reader View)
+   6. شاشة القراءة (Reader View)
 ========================================= */
 .readerHead {
     background: var(--card);
@@ -327,7 +433,6 @@ button {
     background: var(--green-dark);
 }
 
-/* قائمة اختيار القارئ المنسدلة */
 .reciterSelectBox {
     background: var(--card);
     border: 1px solid var(--border);
@@ -418,7 +523,7 @@ html.dark .reciterSelect option {
 }
 
 /* =========================================
-   6. المشغل الصوتي المخصص (Audio Player)
+   7. المشغل الصوتي (Audio Player)
 ========================================= */
 .customPlayer {
     position: fixed;
@@ -531,7 +636,7 @@ html.dark .reciterSelect option {
 }
 
 /* =========================================
-   7. إدارة التنزيلات (Downloads Section)
+   8. التنزيلات والأكورديون (Downloads)
 ========================================= */
 .downloadsContainer {
     display: flex;
@@ -687,7 +792,7 @@ html.dark .reciterSelect option {
 }
 
 /* =========================================
-   8. قسم الأذكار والتسابيح (Adhkar Section)
+   9. قسم الأذكار والتسابيح (Adhkar Section)
 ========================================= */
 .adhkarView {
     display: none;
@@ -810,7 +915,7 @@ html.dark .reciterSelect option {
 }
 
 /* =========================================
-   9. رسائل التنبيه العائمة (Toast)
+   10. رسائل التنبيه العائمة (Toast)
 ========================================= */
 .toast {
     position: fixed;
