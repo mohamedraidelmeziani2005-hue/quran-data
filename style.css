@@ -1,0 +1,702 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap');
+
+/* المتغيرات الأساسية والألوان (الوضع الفاتح) */
+:root {
+    --green: #087f63;
+    --green-dark: #065e49;
+    --green-light: #e5f4ef;
+    --gold: #c79b4b;
+    --bg: #f4f6f5;
+    --card: #ffffff;
+    --text: #1c2421;
+    --muted: #6e7975;
+    --border: #e2e7e4;
+    --ayah-font: 28px;
+    --player-height: 76px;
+}
+
+/* ألوان الوضع المظلم (Dark Mode) */
+html.dark body, body.dark {
+    --bg: #0e1512;
+    --card: #18221e;
+    --text: #edf5f1;
+    --muted: #8e9e97;
+    --border: #26352f;
+    --green-light: #183b31;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cairo', Arial, sans-serif;
+    user-select: none;
+    padding-bottom: var(--player-height);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button, input, select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================================
+   1. الشريط الجانبي (Sidebar)
+========================================= */
+.sidebar {
+    width: 240px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: var(--card);
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.logo {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.logoIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--green), #0ea883);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.nav {
+    padding: 15px 10px;
+    flex: 1;
+}
+
+.nav button {
+    width: 100%;
+    color: var(--muted);
+    padding: 11px 14px;
+    border-radius: 10px;
+    text-align: right;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav button:hover, .nav button.active {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+.activeCountBadge {
+    background: var(--green);
+    color: white;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    display: none;
+}
+
+/* =========================================
+   2. المنطقة الرئيسية والشريط العلوي (Topbar)
+========================================= */
+.main {
+    margin-right: 240px;
+    width: calc(100% - 240px);
+}
+
+.topbar {
+    height: 65px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
+
+.barActions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.miniBtn {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.miniBtn:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px;
+}
+
+/* =========================================
+   3. شبكة السور والبحث (Home Grid)
+========================================= */
+.search {
+    margin-bottom: 20px;
+}
+
+.search input {
+    width: 100%;
+    height: 46px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--card);
+    color: var(--text);
+    padding: 0 16px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.search input:focus {
+    border-color: var(--green);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.surahCard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.surahCard:hover {
+    transform: translateY(-2px);
+    border-color: var(--green);
+}
+
+.surahCardInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.numberBadge {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--green-light);
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.surahName {
+    font-family: 'Amiri', serif;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.downloadedBadge {
+    font-size: 11px;
+    color: var(--green);
+    background: var(--green-light);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: none;
+}
+
+.downloadedBadge.show {
+    display: inline-block;
+}
+
+/* =========================================
+   4. صفحة المصحف والقراءة (Reader View)
+========================================= */
+.reader { display: none; }
+.reader.active { display: block; }
+.home.hidden { display: none; }
+.downloadsView { display: none; }
+.downloadsView.active { display: block; }
+
+.readerHead {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.readerHead h2 {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+    margin: 0;
+}
+
+.readerTools {
+    display: flex;
+    gap: 8px;
+}
+
+.actionBtn {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--text);
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.actionBtn:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.actionBtn.primary {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+.actionBtn.primary:hover {
+    background: var(--green-dark);
+}
+
+/* قائمة اختيار القارئ المنسدلة */
+.reciterSelectBox {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.reciterSelectLabel {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--muted);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.reciterSelect {
+    flex: 1;
+    max-width: 420px;
+    height: 42px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.reciterSelect:focus {
+    border-color: var(--green);
+}
+
+body.dark .reciterSelect option,
+html.dark .reciterSelect option {
+    background: #18221e;
+    color: #edf5f1;
+}
+
+.mushafCard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 35px 40px;
+    min-height: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.bismillah {
+    text-align: center;
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    color: var(--green);
+    margin-bottom: 25px;
+}
+
+.quranText {
+    font-family: 'Amiri', serif;
+    font-size: var(--ayah-font);
+    line-height: 2.4;
+    text-align: justify;
+}
+
+.ayah {
+    padding: 1px 3px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.ayah:hover {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+.ayahNumber {
+    color: var(--gold);
+    margin: 0 4px;
+}
+
+/* =========================================
+   5. المشغل الصوتي المخصص (Audio Player)
+========================================= */
+.customPlayer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--player-height);
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    z-index: 2000;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+}
+
+.playerTrack {
+    width: 220px;
+}
+
+.playerTrack strong {
+    display: block;
+    font-size: 14px;
+}
+
+.playerTrack small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.playerCenter {
+    flex: 1;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.playerControls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.controlBtn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: var(--text);
+    transition: 0.2s;
+}
+
+.controlBtn:hover {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+.controlBtn.playMain {
+    width: 42px;
+    height: 42px;
+    background: var(--green);
+    color: white;
+    font-size: 18px;
+}
+
+.controlBtn.playMain:hover {
+    background: var(--green-dark);
+}
+
+.progressArea {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.progressBar {
+    flex: 1;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--border);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--green);
+    cursor: pointer;
+}
+
+.playerEnd {
+    width: 220px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* =========================================
+   6. إدارة التنزيلات والقوائم المنسدلة (Downloads)
+========================================= */
+.downloadsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.downloadSectionTitle {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.downloadsList {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.reciterGroupCard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    transition: border-color 0.2s;
+}
+
+.reciterGroupCard:hover {
+    border-color: var(--green);
+}
+
+.reciterGroupHeader {
+    padding: 16px 20px;
+    background: var(--green-light);
+    border-bottom: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.reciterGroupHeader:hover {
+    filter: brightness(0.96);
+}
+
+.reciterGroupHeader.expanded {
+    border-bottom-color: var(--border);
+}
+
+.reciterGroupTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--green);
+}
+
+.reciterMeta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reciterGroupCount {
+    font-size: 12px;
+    background: var(--green);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.accordionIcon {
+    font-size: 14px;
+    color: var(--green);
+    transition: transform 0.25s ease;
+    display: inline-block;
+}
+
+.reciterGroupHeader.expanded .accordionIcon {
+    transform: rotate(180deg);
+}
+
+.reciterGroupBody {
+    display: none;
+}
+
+.reciterGroupBody.open {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.downloadRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.downloadRow:last-child {
+    border-bottom: none;
+}
+
+.activeDownloadCard {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.activeDownloadCard:last-child {
+    border-bottom: none;
+}
+
+.activeDownloadHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.liveProgressBarContainer {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.liveProgressBarFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green), #0ea883);
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.2s linear;
+}
+
+/* =========================================
+   7. رسائل التنبيه العائمة (Toast)
+========================================= */
+.toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1c2421;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 13px;
+    display: none;
+    z-index: 9999;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
