@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "update_link": "",
+  "version": "1.0.1",
+  "update_link": "https://github.com/mohamedraidelmeziani2005-hue/quran-data/releases",
   "reciters": [
     { "id": "afs", "name": "مشاري العفاسي", "base": "https://server8.mp3quran.net/afs/" },
     { "id": "sds", "name": "عبد الرحمن السديس", "base": "https://server11.mp3quran.net/sds/" },
