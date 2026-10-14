@@ -1,6 +1,6 @@
 {
   "version": "1.0.1",
-  "update_link": "https://github.com/mohamedraidelmeziani2005-hue/quran-data/releases",
+  "update_link": "https://download1638.mediafire.com/jqv473917h5gj7Baf2sOw326XNFI0oTwa-tK2wrCvaPg5UIqQi4SLMhOs0SLNfU8n6iYd9YlXe85cKFbx9Ojo84gxGwA9TNL4K9Lp_jBNrX59XFJIqsWO4rr6FzPrpDYmcep3JoCsGy7kNFUY9n9Bq7qWqwM8WdudhV3mJjAyBnK/cmvn8wrqr6f7owv/QuranApp_Setup.exe",
   "reciters": [
     { "id": "afs", "name": "مشاري العفاسي", "base": "https://server8.mp3quran.net/afs/" },
     { "id": "sds", "name": "عبد الرحمن السديس", "base": "https://server11.mp3quran.net/sds/" },
